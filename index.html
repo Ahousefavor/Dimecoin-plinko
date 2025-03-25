@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="dashboard">
+        <h1>Admin Dashboard</h1>
+        <div>
+            <label for="houseFavor">House Favor:</label>
+            <input type="number" id="houseFavor" min="1" max="100" value="50">
+        </div>
+        <div>
+            <h2>Profit and Loss</h2>
+            <div id="profitLoss">Current P&L: $0</div>
+        </div>
+        <div>
+            <button id="updateOdds">Update House Odds</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
