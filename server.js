@@ -43,6 +43,22 @@ app.get('/house/balance', async (req, res) => {
     res.json({ houseBalance });
 });
 
+// API route to play the game
+app.post('/api/play', (req, res) => {
+    const { betAmount } = req.body;
+
+    if (betAmount > 0 && wallet.deductBet(betAmount)) {
+        // Proceed to game logic
+        const rewardMultiplier = Math.random() * 5; // Example random multiplier (modify for buckets)
+        const reward = betAmount * rewardMultiplier;
+
+        wallet.addReward(reward); // Update wallet with reward
+        res.json({ reward, newBalance: wallet.getBalance() });
+    } else {
+        res.status(400).json({ error: 'Insufficient funds or invalid bet!' });
+    }
+});
+
 // Start the server
 app.listen(3000, () => {
     console.log('Server running on port 3000');
