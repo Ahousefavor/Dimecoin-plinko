@@ -6,6 +6,9 @@ const { User, Transaction } = require('./models');
 
 app.use(bodyParser.json());
 
+// Serve Plinko game files
+app.use('/game', express.static(path.join(__dirname, 'public/plinko')));
+
 // Route to get user balance
 app.get('/balance/:userId', async (req, res) => {
     const user = await User.findById(req.params.userId);
